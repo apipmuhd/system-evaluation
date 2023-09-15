@@ -82,9 +82,9 @@
                       </div>
                       <div>
 
-                        <button type="submit" class="btn btn-outline-primary btn-icon-text mb-2 mb-md-0">Login
-                          
+                        <button type="submit" class="btn btn-outline-primary btn-icon-text mb-2 mb-md-0">Login    
                         </button>
+                        
                       </div>
                       <a href="register.html" class="d-block mt-3 text-muted">Not a user? Sign up</a>
                     </form>
