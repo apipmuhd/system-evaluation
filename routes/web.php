@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AgentController;
+use App\Http\Controllers\Backend\StudentTypeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -56,3 +57,21 @@ Route::middleware(['auth','role:agent'])->group(function()
 }); // End Group Agent Middleware
 
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
+
+//Admin Group Middleware
+
+Route::middleware(['auth','role:admin'])->group(function()
+{
+    //Contester Type All Route
+    Route::controller(StudentTypeController::class)->group(function()
+    {
+        Route::get('/all/type','AllType')->name('all.type');
+        Route::get('/add/type','AddType')->name('add.type');
+        Route::post('/store/type','StoreType')->name('store.type');
+        Route::get('/edit/type/{id}','EditType')->name('edit.type');
+        Route::post('/update/type','UpdateType')->name('update.type');
+        Route::get('/delete/type/{id}','DeleteType')->name('delete.type');
+
+    });
+
+}); // End Group Admin Middleware

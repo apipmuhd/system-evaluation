@@ -16,6 +16,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
   <!-- End fonts -->
 
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="{{asset('backend/assets/vendors/datatables.net-bs5/dataTables.bootstrap5.css')}}">
+	<!-- End plugin css for this page -->
+
 	<!-- core:css -->
 	<link rel="stylesheet" href="{{asset('backend/assets/vendors/core/core.css')}}">
 	<!-- endinject -->
@@ -83,7 +87,7 @@
 	<script> //js for notification called toaster
 	
 	 @if(Session::has('message'))
-	 var type = "{{ Session::get('alert-type','info') }}"
+	 var type = "{{ Session::get('alert-type','info') }}";
 	 switch(type){
 		case 'info':
 		toastr.info(" {{ Session::get('message') }} ");
@@ -103,6 +107,19 @@
 	 }
 	 @endif 
 	</script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="{{asset('backend/assets/js/code/code.js')}}"></script>
+
+
+	<!-- Plugin js for this page -->
+	<script src="{{asset('backend/assets/vendors/datatables.net/jquery.dataTables.js')}}"></script>
+	<script src="{{asset('backend/assets/vendors/datatables.net-bs5/dataTables.bootstrap5.js')}}"></script>
+	  <!-- End plugin js for this page -->
+
+	  <!-- Custom js for this page -->
+  <script src="{{asset('backend/assets/js/data-table.js')}}"></script>
+  <!-- End custom js for this page -->
 
 </body>
 </html>    

@@ -7,12 +7,14 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class AdminController extends Controller
 {
     public function AdminDashboard()
     {
         
+
         return view('admin.index');
 
 
@@ -26,17 +28,13 @@ class AdminController extends Controller
 
         $request->session()->regenerateToken();
 
-        $notification = array(
-            'message'=>'Admin Logout Successfully',
-            'alert-type' =>'success'
-        );
-
-
-        return redirect('/admin/login')->with($notification);
+        
+        return redirect('/admin/login');
     } // End Method
 
     public function AdminLogin()
     {
+
         return view('admin.admin_login');
 
         
